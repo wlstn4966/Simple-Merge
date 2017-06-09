@@ -20,16 +20,17 @@ public class GUI extends JFrame implements ActionListener {
 	private Menu file = new Menu("File");
 	private Menu medit = new Menu("Edit");
 	private Menu help = new Menu("Help");
-	private MenuItem lbrowse = new MenuItem("ÁÂÃø ÆÄÀÏ ºÒ·¯¿À±â");
-	private MenuItem rbrowse = new MenuItem("¿ìÃø ÆÄÀÏ ºÒ·¯¿À±â");
-	private MenuItem lsave = new MenuItem("ÁÂÃø ÆÄÀÏ ´Ù¸¥ÀÌ¸§ ÀúÀå");
-	private MenuItem rsave = new MenuItem("¿ìÃø ÆÄÀÏ ´Ù¸§ÀÌ¸§ ÀúÀå");
-	private MenuItem exit = new MenuItem("Á¾·á");
-	private MenuItem edit = new MenuItem("ÆíÁı »ç¿ë");
-	private MenuItem x_edit = new MenuItem("ÆíÁı ºÒ°¡");
+	private MenuItem lbrowse = new MenuItem("ì¢Œì¸¡ íŒŒì¼ ë¶ˆëŸ¬ì˜¤ê¸°");
+	private MenuItem rbrowse = new MenuItem("ìš°ì¸¡ íŒŒì¼ ë¶ˆëŸ¬ì˜¤ê¸°");
+	private MenuItem lsave = new MenuItem("ì¢Œì¸¡ íŒŒì¼ ë‹¤ë¥¸ì´ë¦„ ì €ì¥");
+	private MenuItem rsave = new MenuItem("ìš°ì¸¡ íŒŒì¼ ë‹¤ë¦„ì´ë¦„ ì €ì¥");
+	private MenuItem exit = new MenuItem("ì¢…ë£Œ");
+	private MenuItem edit = new MenuItem("í¸ì§‘ ì‚¬ìš©");
+	private MenuItem x_edit = new MenuItem("í¸ì§‘ ë¶ˆê°€");
 	private MenuItem m_lineup = new MenuItem("Auto Line up");
-	private MenuItem lisense = new MenuItem("¶óÀÌ¼¾½º");
+	private MenuItem lisense = new MenuItem("ë¼ì´ì„¼ìŠ¤");
 
+	
 	private JLabel lfName = new JLabel();
 	private JLabel rfName = new JLabel();
 	private JLabel b_exp = new JLabel();
@@ -72,7 +73,7 @@ public class GUI extends JFrame implements ActionListener {
 	public void InitLayout() {
 
 		getContentPane().setLayout(null);
-		// textpane ¹èÄ¡
+		// textpane ë°°ì¹˜
 		WMModel.TextPaneData.editingEnd();
 
 		leftText.setLayout(new BorderLayout());
@@ -83,7 +84,7 @@ public class GUI extends JFrame implements ActionListener {
 		rightText.add(WMModel.TextPaneData.getPane("right"));
 		rightText.setSize(100000, 100000);
 
-		// ¾ÆÀÌÄÜ ¹èÄ¡
+		// ì•„ì´ì½˜ ë°°ì¹˜
 		blload.setBounds(1, 5, 20, 20);
 		blsave.setBounds(23, 5, 20, 20);
 		bedit.setBounds(46, 5, 20, 20);
@@ -101,7 +102,7 @@ public class GUI extends JFrame implements ActionListener {
 
 		b_exp.setBounds(1200, 0, 50, 20);
 		// lfName.setc
-		// ÆĞ³Î¿¡ Ãß°¡
+		// íŒ¨ë„ì— ì¶”ê°€
 
 		mb.add(file);
 		mb.add(medit);
@@ -163,14 +164,14 @@ public class GUI extends JFrame implements ActionListener {
 		x_edit.addActionListener(this);
 		m_lineup.addActionListener(this);
 
-		// ¹öÆ° ¼³¸í
-		blload.setToolTipText("ÁÂÃø ÆÄÀÏ ºÒ·¯¿À±â");
-		brload.setToolTipText("¿ìÃø ÆÄÀÏ ºÒ·¯¿À±â");
-		blsave.setToolTipText("ÁÂÃø ÆÄÀÏ ÀúÀå");
-		brsave.setToolTipText("¿ìÃø ÆÄÀÏ ÀúÀå");
-		bedit.setToolTipText("ÆíÁı »ç¿ë °¡´É");
-		bxedit.setToolTipText("ÆíÁı »ç¿ë ºÒ°¡");
-		b_lineup.setToolTipText("¶óÀÎ Á¤·Ä (¾çÂÊ ÅØ½ºÆ® ºñ±³)");
+		// ë²„íŠ¼ ì„¤ëª…
+		blload.setToolTipText("ì¢Œì¸¡ íŒŒì¼ ë¶ˆëŸ¬ì˜¤ê¸°");
+		brload.setToolTipText("ìš°ì¸¡ íŒŒì¼ ë¶ˆëŸ¬ì˜¤ê¸°");
+		blsave.setToolTipText("ì¢Œì¸¡ íŒŒì¼ ì €ì¥");
+		brsave.setToolTipText("ìš°ì¸¡ íŒŒì¼ ì €ì¥");
+		bedit.setToolTipText("í¸ì§‘ ì‚¬ìš© ê°€ëŠ¥");
+		bxedit.setToolTipText("í¸ì§‘ ì‚¬ìš© ë¶ˆê°€");
+		b_lineup.setToolTipText("ë¼ì¸ ì •ë ¬ (ì–‘ìª½ í…ìŠ¤íŠ¸ ë¹„êµ)");
 		lmerge.setToolTipText("<-- Merge");
 		rmerge.setToolTipText("--> Merge");
 
@@ -186,7 +187,7 @@ public class GUI extends JFrame implements ActionListener {
 		});
 	}
 
-	public void actionPerformed(ActionEvent e) { // ¾×¼Ç Ãß°¡
+	public void actionPerformed(ActionEvent e) { // ì•¡ì…˜ ì¶”ê°€
 		if (e.getSource() == exit) {
 			System.exit(0);
 		} else if (e.getSource() == lbrowse || e.getSource() == blload) {
@@ -198,7 +199,7 @@ public class GUI extends JFrame implements ActionListener {
 		} else if (e.getSource() == rsave || e.getSource() == brsave) {
 			WMModel.SaveText.saveTextFile("right");
 		} else if (e.getSource() == help) {
-			JOptionPane.showMessageDialog(null, "14ÆÀ  SimpleMerge" + '\n' + "¹öÀü Á¤º¸ 1.02", "Lisense", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "14íŒ€  SimpleMerge" + '\n' + "ë²„ì „ ì •ë³´ 1.02", "Lisense", JOptionPane.INFORMATION_MESSAGE);
 		} else if (e.getSource() == edit || e.getSource() == bedit) {
 			WMModel.TextPaneData.editingStart();
 		} else if (e.getSource() == x_edit || e.getSource() == bxedit) {
